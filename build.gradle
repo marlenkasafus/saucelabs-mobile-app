@@ -22,12 +22,19 @@ ext {
 
 dependencies {
     implementation "net.serenity-bdd:serenity-core:${serenityVersion}",
-            "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
+            "net.serenity-bdd:serenity-screenplay:${serenityVersion}",
+            "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
 
 
     testImplementation "net.serenity-bdd:serenity-junit5:${serenityVersion}",
             "net.serenity-bdd:serenity-ensure:${serenityVersion}",
             "net.serenity-bdd:serenity-cucumber:${serenityCucumberVersion}"
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
 gradle.startParameter.continueOnFailure = true
