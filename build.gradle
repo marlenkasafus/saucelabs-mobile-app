@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id "nebula.lint" version "17.7.0"
+    id "net.serenity-bdd.serenity-gradle-plugin" version "3.3.4"
+}
+
+group 'com.marlen'
+version '1.0-SNAPSHOT'
+gradleLint.rules = ['unused-dependency']
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+ext {
+    serenityVersion = '3.3.4'
+    serenityCucumberVersion = '3.3.4'
+}
+
+dependencies {
+    implementation "net.serenity-bdd:serenity-core:${serenityVersion}",
+            "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
+
+
+    testImplementation "net.serenity-bdd:serenity-junit5:${serenityVersion}",
+            "net.serenity-bdd:serenity-ensure:${serenityVersion}",
+            "net.serenity-bdd:serenity-cucumber:${serenityCucumberVersion}"
+}
+
+gradle.startParameter.continueOnFailure = true
+test.finalizedBy(aggregate)
