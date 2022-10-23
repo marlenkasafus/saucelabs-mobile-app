@@ -27,7 +27,7 @@ dependencies {
             "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}",
             "ch.qos.logback:logback-classic:${logbackVersion}"
 
-            testImplementation "net.serenity-bdd:serenity-junit5:${serenityVersion}",
+    testImplementation "net.serenity-bdd:serenity-junit5:${serenityVersion}",
             "net.serenity-bdd:serenity-ensure:${serenityVersion}",
             "net.serenity-bdd:serenity-cucumber:${serenityCucumberVersion}"
 }
