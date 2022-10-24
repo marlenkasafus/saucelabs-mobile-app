@@ -18,7 +18,7 @@ targetCompatibility = 11
 ext {
     serenityVersion = '3.2.5'
     serenityCucumberVersion = '3.2.5'
-    logbackVersion = '1.2.10'
+    logbackVersion = '1.4.4'
 }
 
 dependencies {
