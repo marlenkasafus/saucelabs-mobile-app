@@ -1,13 +1,13 @@
 package com.marlen.tasks;
 
+import com.marlen.interactions.Arrastrar;
 import com.marlen.interactions.Scroll;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 
-import static com.marlen.userinterfaces.ListaProductosUserInterface.BUTTON_AGREGAR_CARRITO;
-import static com.marlen.userinterfaces.ListaProductosUserInterface.LABEL_NOMBRE_PRODUCTO;
+import static com.marlen.userinterfaces.ListaProductosUserInterface.*;
 
 public class AgregarProducto implements Task {
 
@@ -29,5 +29,12 @@ public class AgregarProducto implements Task {
 
     public static AgregarProducto alCarrito(String producto) {
         return Tasks.instrumented(AgregarProducto.class, producto);
+    }
+
+    public static Task arrastrandoloAlCarrito(String producto) {
+        return Task.called("Arrastrar producto al carrito").whereTheActorAttemptsTo(
+                Scroll.AElemento(LABEL_NOMBRE_PRODUCTO.of(producto)),
+                Arrastrar.elemento(BUTTON_ARRASTRAR_PRODUCTO.of(producto), TOP_BAR_CARRITO)
+        );
     }
 }

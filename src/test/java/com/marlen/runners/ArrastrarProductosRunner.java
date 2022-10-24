@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "src/test/resources/features/comprar_productos.feature",
-        tags = "@BotonAgregar",
+        tags = "@ArrastrarProducto",
         glue = "com.marlen.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
-public class ComprarProductosRunner {
+public class ArrastrarProductosRunner {
 }

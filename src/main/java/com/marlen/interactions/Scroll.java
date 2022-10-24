@@ -21,6 +21,8 @@ public class Scroll implements Interaction {
     @Override
     public <T extends Actor> void performAs(T actor) {
         WebDriver driver = getProxiedDriver();
+
+
         Dimension dimension = driver.manage().window().getSize();
         int posicionCentral = dimension.width / 2;
         int posicionInicialSuperior = dimension.height / 4;
@@ -30,7 +32,7 @@ public class Scroll implements Interaction {
             ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
                     "left", posicionCentral, "top", posicionInicialSuperior, "width", 10, "height", tamanoScroll,
                     "direction", "down",
-                    "percent", 5.0
+                    "percent", 3
             ));
         }
     }
